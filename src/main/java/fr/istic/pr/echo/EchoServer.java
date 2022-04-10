@@ -20,11 +20,12 @@ public class EchoServer {
             System.out.println("The client " + socketClient.getInetAddress() + " is connected");
 
             // Création d'un ClientHandler
-            ClientHandler clientHandler = new ClientHandlerBytes(socketClient);
-
+            //ClientHandler clientHandler = new ClientHandlerBytes(socketClient);
+            ClientHandler clientHandler = new ClientHandlerChar(socketClient);
             while (true) {
                 // Appel de la fonction handle()
                 clientHandler.handle();
+
             }
         } catch (IOException exception){
             System.out.println("Error " + exception.getMessage());

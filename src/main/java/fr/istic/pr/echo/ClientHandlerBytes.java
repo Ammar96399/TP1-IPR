@@ -23,13 +23,11 @@ public class ClientHandlerBytes implements ClientHandler {
         // Récupération du message envoyer par le client
         InputStream input = socket.getInputStream();
         input.read(buffer);
-        String inputToString = new String(buffer);
-        System.out.println("Message sent by the client: " + inputToString);
 
+        // Renvoie du message vers le client
         OutputStream output = socket.getOutputStream();
         output.write(buffer);
-        // Message en bytes ==> string
-        /*String inputToString = new BufferedReader(new InputStreamReader(input, StandardCharsets.UTF_8)).lines().collect(Collectors.joining("\n"));
-        System.out.println(inputToString);*/
+
+        socket.close();
     }
 }
